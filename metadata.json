@@ -1,0 +1,6 @@
+{
+  "name": "LAB. - Premium Stickers & Future Gear",
+  "description": "An editorial Neo-Brutalist digital laboratory showcasing premium high-contrast stickers and conceptual future gear.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
