@@ -445,12 +445,16 @@ export default function Page() {
       </div>
 
       {/* Primary Top Header Section */}
-      <header className="w-full border-b-2 border-[#1B120F] relative grid grid-cols-1 md:grid-cols-12 h-auto md:h-[100px] bg-[#E6DEDD]">
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        className="w-full border-b-2 border-[#1B120F] relative grid grid-cols-1 md:grid-cols-12 h-auto md:h-[100px] bg-[#E6DEDD]">
         
         {/* Left Column Brand Module */}
         <div className="md:col-span-3 border-b md:border-b-0 border-r-2 border-[#1B120F] p-6 flex items-center justify-between">
           <div className="flex items-baseline space-x-3">
-            <span className="text-3xl font-black tracking-tighter text-[#1B120F]">{"X // LAB."}</span>
+            <span className="font-display text-3xl tracking-tighter text-[#1B120F]">{"X // LAB."}</span>
             <span className="text-xs px-2 py-0.5 font-bold border border-[#1B120F] text-[#E6DEDD] bg-[#1B120F]">{"STORE"}</span>
           </div>
           <span className="text-xs font-bold md:hidden text-[#8F1D14] animate-pulse">{"01"}</span>
@@ -497,13 +501,17 @@ export default function Page() {
             <span>{"CART ["}{cartCount}{"]"}</span>
           </button>
         </div>
-      </header>
+      </motion.header>
 
       {/* Main Grid Wrapper */}
       <main className="flex-grow w-full grid grid-cols-1 lg:grid-cols-12 relative">
         
         {/* Sticky Future-Proof Category Navigation Column (Asymmetric Left Sidebar) */}
-        <aside className="lg:col-span-3 border-r-2 border-[#1B120F] flex flex-col justify-between bg-[#E6DEDD] p-8 space-y-12">
+        <motion.aside
+          initial={{ opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: 0.15 }}
+          className="lg:col-span-3 border-r-2 border-[#1B120F] flex flex-col justify-between bg-[#E6DEDD] p-8 space-y-12">
           
           <div className="space-y-8">
             <div className="border-b border-[#1B120F]/20 pb-4">
@@ -576,7 +584,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-        </aside>
+        </motion.aside>
 
         {/* Dynamic Center Work Area (Exploded layout) */}
         <section className="lg:col-span-9 flex flex-col bg-[#E6DEDD]">
@@ -590,15 +598,30 @@ export default function Page() {
                 <div className="text-[#8F1D14] text-xs font-extrabold tracking-widest uppercase mb-4">
                   {"[ SERIES 001 // THE LAUNCH ]"}
                 </div>
-                <h1 className="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-[#1B120F] select-none leading-none">
+                <motion.h1
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, ease: 'easeOut', delay: 0.1 }}
+                  className="font-display text-7xl md:text-8xl lg:text-9xl tracking-tighter text-[#1B120F] select-none leading-none"
+                >
                   {"lab."}
-                </h1>
-                <div className="text-3xl font-extrabold tracking-tighter text-[#1B120F] mt-2">
+                </motion.h1>
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut', delay: 0.18 }}
+                  className="text-3xl font-extrabold tracking-tighter text-[#1B120F] mt-2"
+                >
                   {"MATERIAL_SYSTEM_01"}
-                </div>
-                <p className="text-sm mt-6 text-[#1B120F]/80 leading-relaxed max-w-sm">
+                </motion.div>
+                <motion.p
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut', delay: 0.26 }}
+                  className="text-sm mt-6 text-[#1B120F]/80 leading-relaxed max-w-sm"
+                >
                   {"A stark exploration of premium physical decals and future electronics design. Built under extreme tactical limits. Precision-crafted for immediate use."}
-                </p>
+                </motion.p>
               </div>
 
               {/* Action Circle CTA & Offset Indicator */}
@@ -618,7 +641,7 @@ export default function Page() {
                     <ArrowDown size={14} className="animate-bounce" />
                   </a>
                 </div>
-                <div className="font-black text-6xl opacity-35 tracking-tight text-[#1B120F]">
+                <div className="font-display text-6xl opacity-35 tracking-tight text-[#1B120F]">
                   {"001"}
                 </div>
               </div>
@@ -717,11 +740,12 @@ export default function Page() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.3 }}
-                      className="border-2 border-[#1B120F] bg-[#E6DEDD] hover:shadow-[6px_6px_0px_#1B120F] transition-shadow duration-300 flex flex-col justify-between group relative overflow-hidden"
+                      whileHover={{ x: -5, y: -5, boxShadow: '10px 10px 0px #1B120F', transition: { duration: 0.2, ease: 'easeOut' } }}
+                      className="border-2 border-[#1B120F] bg-[#E6DEDD] flex flex-col justify-between group relative overflow-hidden"
                     >
                       {/* Product Header / Index Block */}
                       <div className="border-b border-[#1B120F] p-4 flex justify-between items-center bg-[#1B120F]/5">
-                        <span className="text-2xl font-black text-[#1B120F]">{product.index}</span>
+                        <span className="font-display text-2xl text-[#1B120F]">{product.index}</span>
                         <span className="text-[10px] border border-[#1B120F] px-2 py-0.5 font-bold uppercase tracking-tighter bg-[#E6DEDD]">
                           {product.category}
                         </span>
@@ -1011,7 +1035,7 @@ export default function Page() {
       <footer className="w-full bg-[#1B120F] text-[#E6DEDD] border-t-2 border-[#1B120F] p-12 grid grid-cols-1 md:grid-cols-12 gap-8 z-30">
         
         <div className="col-span-1 md:col-span-4 space-y-4">
-          <div className="text-xl font-black">{"X // LABS"}</div>
+          <div className="font-display text-xl">{"X // LABS"}</div>
           <p className="text-xs text-[#E6DEDD]/60 leading-relaxed max-w-sm">
             {"Future-proof digital showcase dedicated to premium decals and concept structural products. Merging hard geometry grids, raw monochromatic textures, and Swiss layouts for active target groups."}
           </p>
