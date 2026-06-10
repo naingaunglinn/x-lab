@@ -2,12 +2,28 @@
 
 @theme {
   --font-mono: var(--font-mono), monospace;
+  --font-display: var(--font-display), "Arial Black", sans-serif;
 }
 
 body {
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-  background-color: #E6DEDD;
   color: #1B120F;
+  /* Faint laboratory grid + subtle top vignette for atmosphere/depth
+     instead of a flat paper fill. Kept very low-alpha so it reads as
+     texture behind the bordered sections, never as a hard grid. */
+  background-color: #E6DEDD;
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(143, 29, 20, 0.06) 0%, transparent 60%),
+    linear-gradient(to right, rgba(27, 18, 15, 0.022) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 18, 15, 0.022) 1px, transparent 1px);
+  background-size: 100% 100%, 34px 34px, 34px 34px;
+  background-attachment: fixed, fixed, fixed;
+}
+
+/* Apply the display face via utility, but ensure it overrides the
+   global mono body rule wherever font-display is used. */
+.font-display {
+  font-family: var(--font-display), "Arial Black", system-ui, sans-serif !important;
 }
 
 /* Editorial subtle scanline/noise effect to accentuate lab aesthetic */
