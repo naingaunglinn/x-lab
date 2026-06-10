@@ -29,6 +29,7 @@ build; read the relevant file before implementing a slice.
 | `blog.md`                 | Blog: TipTap block editor, post/category/tag model, post↔product cross-linking, public `/blog`, admin editor |
 | `admin-portal.md`         | Admin UI: route map, pages, forms, image-upload UX, components                                              |
 | `frontend-integration.md` | Refactor of `app/page.tsx` to consume the API (server fetch + ISR, mappers, fallback)                       |
+| `MAINTAINING.md`          | How to use, fix, and extend these specs: canonical-file map, edit workflow, house template — read first      |
 
 ## Guiding principles
 
